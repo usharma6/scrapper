@@ -1,0 +1,12 @@
+from selenium import webdriver
+from BeautifulSoup import BeautifulSoup
+import pandas as pd
+
+driver = webdriver.Chrome("/usr/lib/chromium-browser/chromedriver")
+driver.get("https://www.nytimes.com/search/?date_select=full&query=Flint+Water+Crisis&type=nyt&x=0&y=0")
+content = driver.page_source
+soup = BeautifulSoup(content)
+urls = []
+title = []
+dates = []
+for a in in soup.findAll('li', attrs={'class':'css-1l4w6pd'})
